@@ -19,3 +19,20 @@ models:
         tests:
           - unique
           - not_null
+
+  - name: tabela_exemplo
+    description: "Tabela exemplo"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: id
+        data_type: Integer
+        description: "The primary key for this table"
+        tests:
+          - not_null
+      - name: nome
+        data_type: text
+        description: "Nome"
+        tests:
+          - not_null
