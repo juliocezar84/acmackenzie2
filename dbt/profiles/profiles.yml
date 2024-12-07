@@ -3,28 +3,10 @@ demo_mysql:
   outputs:
     dev:
       type: mysql
-      server: terraform-20241130190851022500000001.cvgsvodwblg4.us-east-1.rds.amazonaws.com
+      server: '{{ env_var(''DATABASE_URL'') }}'
       port: 3306  # optional
-      database: salesforce # optional, should be same as schema
-      schema: public
-      username: admin
-      password: Senha_0911
-      driver: MySQL ODBC 8.0 ANSI Driver
-    prod:
-      type: mysql
-      server: [server/host]
-      port: [port]  # optional
-      database: [schema] # optional, should be same as schema
-      schema: [schema]
-      username: [username]
-      password: [password]
-      driver: MySQL ODBC 8.0 ANSI Driver
-    local:
-      type: mysql
-      server: localhost
-      port: 3306  # optional
-      database: salesforce # optional, should be same as schema
-      schema: public
-      username: admin
-      password: Senha_0911
+      database: '{{ env_var(''DATABASE_NAME'') }}' # optional, should be same as schema
+      schema: '{{ env_var(''DATABASE_SCHEMA'') }}'
+      username: '{{ env_var(''DATABASE_USER'') }}'
+      password: '{{ env_var(''DATABASE_PWD'') }}'
       driver: MySQL ODBC 8.0 ANSI Driver
